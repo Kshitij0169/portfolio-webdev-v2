@@ -28,8 +28,8 @@ const TAB_DATA = [
     id: "experience",
     content: (
       <ul className="list-disc pl-2">
-        <li>Front end Designer/Developer Intern <b>at</b></li>
-        <li>Magick Box Media</li>
+        <li>Front end Designer/Developer Intern at</li>
+        <p><b>Magick Box Media</b></p>
       </ul>
     )
   },
@@ -38,8 +38,8 @@ const TAB_DATA = [
     id: "education",
     content: (
       <ul className="list-disc pl-2">
-        <li>Bachelor of Engineering in Computer Engineering, University of Mumbai</li>
-        <li>Master of Science in Information Systems, Northeastern University</li>
+        <li>Master of Science in Information Systems, <b>Northeastern University</b></li>
+        <li>Bachelor of Engineering in Computer Engineering, <b>University of Mumbai</b></li>
       </ul>
     )
   },
