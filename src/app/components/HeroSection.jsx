@@ -3,8 +3,14 @@ import React from "react";
 import Image from "next/image";
 import { TypeAnimation } from 'react-type-animation';
 import { motion } from "framer-motion";
+import { saveAs } from "file-saver";
 
 const HeroSection = () => {
+
+    const saveFile = () => {
+        saveAs("https://drive.google.com/file/d/1rb3MNJlpfgUNqBV5bYLqUjndqaMssECZ/view?usp=sharing", "Kshitij_Tiwari_resume.pdf")
+    }
+
     return( 
     <section className="lg:py-20">
         <div className="grid grid-cols-1 sm:grid-cols-12">
@@ -38,7 +44,7 @@ const HeroSection = () => {
                     A current graduate student at Northeastern University, pursuing MS in Information Systems. Full-Stack developer with an inclination towards Frontend.
                 </p>
                 <div className="sm:place-content-center">
-                    <button className="uibtn w-full sm:w-fit rounded-full">
+                    <button onClick={saveFile} className="uibtn w-full sm:w-fit rounded-full">
                         <span>Download Resume</span> 
                     </button>
                 </div>
