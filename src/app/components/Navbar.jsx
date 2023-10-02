@@ -16,10 +16,6 @@ const navLinks = [
         path: "#projects"
     },
     {
-        title: "Experience",
-        path: "#experience"
-    },
-    {
         title: "Contact",
         path: "#contact"
     }
@@ -29,8 +25,8 @@ const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-10 bg-[#121212] bg-opacity-100">
-        <div className="flex flex-wrap items-center justify-between pt-1"> 
+    <nav className="fixed border-b border-[#33353F] top-0 left-0 right-0 z-10 bg-[#121212] bg-opacity-100 p-0">
+        <div className="flex flex-row lg:py-4 items-center justify-between pt-1"> 
             <Link href={"/"}>
                 <Image
                     src="/images/logo.png"

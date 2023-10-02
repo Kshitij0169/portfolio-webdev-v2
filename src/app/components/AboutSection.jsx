@@ -39,7 +39,8 @@ const TAB_DATA = [
     content: (
       <ul className="list-disc pl-2">
         <li>Master of Science in Information Systems, <b>Northeastern University</b></li>
-        <li>Bachelor of Engineering in Computer Engineering, <b>University of Mumbai</b></li>
+        <li>Bachelor of Engineering in Computer Engineering, <b>University of Mumbai</b> </li>
+        <p><b>Best Student of Computer Engineering Department, 2018-2022</b></p>
       </ul>
     )
   },
