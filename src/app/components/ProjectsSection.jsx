@@ -8,6 +8,15 @@ import { motion, useInView } from 'framer-motion';
 const projectsData = [
   {
     id: 1,
+    title: "Personal Portfolio NextJS",
+    description: "NextJS Website",
+    image: "/images/projects/4.png",
+    tag: ["All", "Web", "UX"],
+    git: "https://github.com/Kshitij0169/portfolio-webdev-v2.git",
+    preview:"https://portfolio-webdev-v2.vercel.app/"
+  },
+  {
+    id: 2,
     title: "i-Fix e-commerce Website",
     description: "Full-stack React web application",
     image: "/images/projects/1.png",
@@ -16,7 +25,7 @@ const projectsData = [
     preview:"/"
   },
   {
-    id: 2,
+    id: 3,
     title: "Secrets Web App",
     description: "Web app to share secrets anonymously",
     image: "/images/projects/2.png",
@@ -25,14 +34,15 @@ const projectsData = [
     preview:"/"
   },
   {
-    id: 3,
+    id: 4,
     title: "Simple Invest Finance app",
     description: "UX design and prototyping",
     image: "/images/projects/3.png",
     tag: ["All", "Figma", "UX"],
     git: "https://github.com/Kshitij0169/Simple-invest.git",
-    preview:"/"
+    preview:"https://www.figma.com/file/1zNPAyHfYsbqnMmCNdVQcL/Simple-Invest-Final-Project?type=design&node-id=603%3A237&mode=design&t=gXKQZfg09CKwgtQJ-1"
   },
+
 ]
 
 const ProjectsSection = () => {
