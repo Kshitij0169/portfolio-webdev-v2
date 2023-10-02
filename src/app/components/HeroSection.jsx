@@ -8,7 +8,7 @@ import { saveAs } from "file-saver";
 const HeroSection = () => {
 
     const saveFile = () => {
-        saveAs("https://drive.google.com/file/d/1rb3MNJlpfgUNqBV5bYLqUjndqaMssECZ/view?usp=sharing", "Kshitij_Tiwari_resume.pdf")
+        saveAs("https://drive.google.com/file/d/1vGe8SWeqgxm4ExxuWJqjXAQ8IW2adX7U/view?usp=sharing", "Kshitij_Tiwari_resume.pdf")
     }
 
     return( 

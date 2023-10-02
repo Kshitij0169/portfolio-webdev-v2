@@ -22,7 +22,7 @@ const projectsData = [
     image: "/images/projects/1.png",
     tag: ["All", "Web"],
     git: "https://github.com/Kshitij0169/WebDesignFinal_Group4.git",
-    preview:"/"
+    preview:"https://github.com/Kshitij0169/WebDesignFinal_Group4.git"
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ const projectsData = [
     image: "/images/projects/2.png",
     tag: ["All", "Web"],
     git: "https://github.com/Kshitij0169/Secrets-App.git",
-    preview:"/"
+    preview:"https://github.com/Kshitij0169/Secrets-App.git"
   },
   {
     id: 4,
