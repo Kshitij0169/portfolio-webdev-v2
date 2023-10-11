@@ -4,49 +4,42 @@ import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import Image from 'next/image';
 import Link from 'next/link';
+import axios from 'axios';
 
 const EmailSection = () => {
-  
+
     const [emailSubmitted, setEmailSubmitted] = useState(false);
-    const [error, setError] = useState(null); // New error state
+    const[email, setEmail] = useState('');
+    const[message, setMessage] = useState('');
+    const[subject, setSubject] = useState('');
   
     const handleSubmit = async (e) => {
       e.preventDefault();
+
+      const serviceId = `${process.env.NEXT_PUBLIC_SERVICE_ID}`;
+      const templateId = `${process.env.NEXT_PUBLIC_TEMPLATE_ID}`;
+      const publicKey = `${process.env.NEXT_PUBLIC_PUBLIC_KEY}`;
+
       const data = {
-        email: e.target.email.value,
-        subject: e.target.subject.value,
-        message: e.target.message.value,
-      };
-  
-      // Check if 'email' is missing
-      if (!data.email) {
-        setError("Email is missing");
-        return;
-      }
-  
-      const JSONdata = JSON.stringify(data);
-      const endpoint = "/api/send";
-  
-      const options = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+        service_id: serviceId,
+        template_id: templateId,
+        user_id: publicKey,
+        template_params: {
+          from_email: email,
+          to_name: 'Kshitij',
+          subject: subject,
+          message: message,
         },
-        body: JSONdata,
       };
   
       try {
-        const response = await fetch(endpoint, options);
-  
-        if (response.status === 200) {
-          console.log("Message successfully sent.");
-          setEmailSubmitted(true);
-          setError(null); // Clear any previous errors
-        } else {
-          setError("Failed to send the message");
-        }
+        const res = await axios.post('https://api.emailjs.com/api/v1.0/email/send', data);
+        console.log(res.data);
+        setEmail('');
+        setMessage('');
+        setSubject('');
+        setEmailSubmitted(true);
       } catch (error) {
-        setError("Internal Server Error");
         console.error("Error:", error);
       }
     };
@@ -89,6 +82,8 @@ const EmailSection = () => {
                      type="email"
                      id="email"
                      name="email" 
+                     value={email}
+                     onChange={(e) => setEmail(e.target.value)}
                     required
                     className="bg-[#18191E] border border-[#66188a] placeholder:[#9CA2A9] text-gray-100 text-sm rounded-lg w-full p-2.5"
                     placeholder="sample@something.com" />
@@ -98,7 +93,8 @@ const EmailSection = () => {
                         Subject
                     </label>
                     <input
-                    type="text" id="subject" name="subject"
+                    type="text" id="subject" name="subject" value={subject}
+                    onChange={(e) => setSubject(e.target.value)}
                     className="bg-[#18191E] border border-[#66188a] placeholder:[#9CA2A9] text-gray-100 text-sm rounded-lg w-full p-2.5"
                     placeholder="What's on your mind?" />
                 </div>
@@ -109,6 +105,8 @@ const EmailSection = () => {
                     <textarea 
                         name="message"
                         id="message"
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
                         className="bg-[#18191E] border border-[#66188a] placeholder:[#9CA2A9] text-gray-100 text-sm rounded-lg w-full p-2.5"
                         placeholder="Hi, I'd like to talk about..."
                     />
