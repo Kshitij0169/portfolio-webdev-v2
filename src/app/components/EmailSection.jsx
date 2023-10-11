@@ -5,44 +5,42 @@ import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import Image from 'next/image';
 import Link from 'next/link';
 import axios from 'axios';
+import { Resend } from 'resend';
 
 const EmailSection = () => {
 
-    const [emailSubmitted, setEmailSubmitted] = useState(false);
-    const[email, setEmail] = useState('');
-    const[message, setMessage] = useState('');
-    const[subject, setSubject] = useState('');
-  
-    const handleSubmit = async (e) => {
-      e.preventDefault();
+    // const [emailSubmitted, setEmailSubmitted] = useState(false);
 
-      const serviceId = `${process.env.NEXT_PUBLIC_SERVICE_ID}`;
-      const templateId = `${process.env.NEXT_PUBLIC_TEMPLATE_ID}`;
-      const publicKey = `${process.env.NEXT_PUBLIC_PUBLIC_KEY}`;
-
-      const data = {
-        service_id: serviceId,
-        template_id: templateId,
-        user_id: publicKey,
-        template_params: {
-          from_email: email,
-          to_name: 'Kshitij',
-          subject: subject,
-          message: message,
-        },
-      };
+    // const handleSubmit = async (e) => {
+    //   e.preventDefault();
+    //   const data = {
+    //     email: e.target.email.value,
+    //     subject: e.target.subject.value,
+    //     message: e.target.message.value,
+    //   };
+    //   const JSONdata = JSON.stringify(data);
+    //   const endpoint = "/api/send";
   
-      try {
-        const res = await axios.post('https://api.emailjs.com/api/v1.0/email/send', data);
-        console.log(res.data);
-        setEmail('');
-        setMessage('');
-        setSubject('');
-        setEmailSubmitted(true);
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    };
+    //   // Form the request for sending data to the server.
+    //   const options = {
+    //     // The method is POST because we are sending data.
+    //     method: "POST",
+    //     // Tell the server we're sending JSON.
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     // Body of the request is the JSON data we created above.
+    //     body: JSONdata,
+    //   };
+  
+    //   const response = await fetch(endpoint, options);
+    //   const resData = await response.json();
+  
+    //   if (response.status === 200) {
+    //     console.log("Message sent.");
+    //     setEmailSubmitted(true);
+    //   }
+    // };
 
   return (
     <section id="contact" className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative">
@@ -72,8 +70,9 @@ const EmailSection = () => {
                 </Link>
             </div>
         </div>
+
         <div>
-            <form className="flex flex-col" onSubmit={handleSubmit}>
+            <form className="flex flex-col" action="https://formsubmit.co/tiwari.ks@northeastern.edu" method="POST">
                 <div className="mb-6">
                     <label htmlFor="email" className="text-white block mb-2 text-sm font-medium ">
                         Your Email
@@ -82,8 +81,8 @@ const EmailSection = () => {
                      type="email"
                      id="email"
                      name="email" 
-                     value={email}
-                     onChange={(e) => setEmail(e.target.value)}
+                    //  value={email}
+                    //  onChange={(e) => setEmail(e.target.value)}
                     required
                     className="bg-[#18191E] border border-[#66188a] placeholder:[#9CA2A9] text-gray-100 text-sm rounded-lg w-full p-2.5"
                     placeholder="sample@something.com" />
@@ -93,8 +92,9 @@ const EmailSection = () => {
                         Subject
                     </label>
                     <input
-                    type="text" id="subject" name="subject" value={subject}
-                    onChange={(e) => setSubject(e.target.value)}
+                    type="text" id="subject" name="subject" 
+                    // value={subject}
+                    // onChange={(e) => setSubject(e.target.value)}
                     className="bg-[#18191E] border border-[#66188a] placeholder:[#9CA2A9] text-gray-100 text-sm rounded-lg w-full p-2.5"
                     placeholder="What's on your mind?" />
                 </div>
@@ -105,12 +105,13 @@ const EmailSection = () => {
                     <textarea 
                         name="message"
                         id="message"
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
+                        // value={message}
+                        // onChange={(e) => setMessage(e.target.value)}
                         className="bg-[#18191E] border border-[#66188a] placeholder:[#9CA2A9] text-gray-100 text-sm rounded-lg w-full p-2.5"
                         placeholder="Hi, I'd like to talk about..."
                     />
                 </div>
+                <input type="hidden" name="_autoresponse" value="Thanks alot for getting in touch! I will get back to you as soon as I can."></input>
                 <div className="text-center">
                     <button
                     type="submit"
@@ -118,13 +119,6 @@ const EmailSection = () => {
                     hover:bg-[#b35ddb] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-75 duration-300 focus:bg-transparent">
                         Send Message
                     </button>
-                    {
-                        emailSubmitted && (
-                            <p className="text-green-500 text-sm mt-2">
-                                Email sent Successfully!
-                            </p>
-                        )
-                    }
                 </div>
             </form>
         </div>
