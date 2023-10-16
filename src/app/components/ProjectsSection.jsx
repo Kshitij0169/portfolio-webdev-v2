@@ -42,6 +42,15 @@ const projectsData = [
     git: "https://github.com/Kshitij0169/Simple-invest.git",
     preview:"https://www.figma.com/file/1zNPAyHfYsbqnMmCNdVQcL/Simple-Invest-Final-Project?type=design&node-id=603%3A237&mode=design&t=gXKQZfg09CKwgtQJ-1"
   },
+  {
+    id: 5,
+    title: "Digimall (Product Website)",
+    description: "Full-stack Development",
+    image: "/images/projects/5.png",
+    tag: ["All", "Web"],
+    git: "https://github.com/Kshitij0169/digi-store.git",
+    preview:"https://github.com/Kshitij0169/digi-store.git"
+  },
 
 ]
 
