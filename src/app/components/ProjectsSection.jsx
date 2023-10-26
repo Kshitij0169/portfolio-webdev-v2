@@ -1,9 +1,8 @@
 "use client";
-import React, {useState, useRef} from 'react';
-import ProjectCard from './ProjectCard';
-import ProjectTags from './ProjectTags';
-import { motion, useInView } from 'framer-motion';
- 
+import React, { useState, useRef } from "react";
+import ProjectCard from "./ProjectCard";
+import ProjectTags from "./ProjectTags";
+import { motion, useInView } from "framer-motion";
 
 const projectsData = [
   {
@@ -13,7 +12,16 @@ const projectsData = [
     image: "/images/projects/4.png",
     tag: ["All", "Web", "UX"],
     git: "https://github.com/Kshitij0169/portfolio-webdev-v2.git",
-    preview:"https://portfolio-webdev-v2.vercel.app/"
+    preview: "https://portfolio-webdev-v2.vercel.app/",
+  },
+  {
+    id: 6,
+    title: "Airbnb Clone",
+    description: "Front End Development",
+    image: "/images/projects/6.png",
+    tag: ["All", "Web", "UX"],
+    git: "https://github.com/Kshitij0169/airbnb-clone.git",
+    preview: "https://github.com/Kshitij0169/airbnb-clone.git",
   },
   {
     id: 2,
@@ -22,7 +30,7 @@ const projectsData = [
     image: "/images/projects/1.png",
     tag: ["All", "Web"],
     git: "https://github.com/Kshitij0169/WebDesignFinal_Group4.git",
-    preview:"https://github.com/Kshitij0169/WebDesignFinal_Group4.git"
+    preview: "https://github.com/Kshitij0169/WebDesignFinal_Group4.git",
   },
   {
     id: 3,
@@ -31,7 +39,7 @@ const projectsData = [
     image: "/images/projects/2.png",
     tag: ["All", "Web"],
     git: "https://github.com/Kshitij0169/Secrets-App.git",
-    preview:"https://github.com/Kshitij0169/Secrets-App.git"
+    preview: "https://github.com/Kshitij0169/Secrets-App.git",
   },
   {
     id: 4,
@@ -40,7 +48,8 @@ const projectsData = [
     image: "/images/projects/3.png",
     tag: ["All", "Figma", "UX"],
     git: "https://github.com/Kshitij0169/Simple-invest.git",
-    preview:"https://www.figma.com/file/1zNPAyHfYsbqnMmCNdVQcL/Simple-Invest-Final-Project?type=design&node-id=603%3A237&mode=design&t=gXKQZfg09CKwgtQJ-1"
+    preview:
+      "https://www.figma.com/file/1zNPAyHfYsbqnMmCNdVQcL/Simple-Invest-Final-Project?type=design&node-id=603%3A237&mode=design&t=gXKQZfg09CKwgtQJ-1",
   },
   {
     id: 5,
@@ -49,57 +58,56 @@ const projectsData = [
     image: "/images/projects/5.png",
     tag: ["All", "Web"],
     git: "https://github.com/Kshitij0169/digi-store.git",
-    preview:"https://github.com/Kshitij0169/digi-store.git"
+    preview: "https://github.com/Kshitij0169/digi-store.git",
   },
-
-]
+];
 
 const ProjectsSection = () => {
   const [tag, setTag] = useState("All");
-  const ref = useRef(null); 
-  const isInView = useInView(ref, {once: true}); 
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
   const handleTagChange = (newTag) => {
     setTag(newTag);
   };
 
-  const filteredProjects = projectsData.filter((project) => 
+  const filteredProjects = projectsData.filter((project) =>
     project.tag.includes(tag)
   );
 
   const cardVariants = {
-    initial: {y: 50, opacity: 0},
-    animate: {y: 0, opacity: 1},
+    initial: { y: 50, opacity: 0 },
+    animate: { y: 0, opacity: 1 },
   };
 
   return (
     <section id="projects" ref={ref}>
       <h2 className="text-4xl font-bold text-white mb-8">My Projects</h2>
       <div className="text-white flex flex-row justify-center items-center gap-3 py-6">
-        <ProjectTags 
-          onClick={handleTagChange} 
-          name="All" 
-          isSelected={tag === "All"} 
+        <ProjectTags
+          onClick={handleTagChange}
+          name="All"
+          isSelected={tag === "All"}
         />
-        <ProjectTags 
-          onClick={handleTagChange} 
-          name="Web" 
-          isSelected={tag === "Web"} 
+        <ProjectTags
+          onClick={handleTagChange}
+          name="Web"
+          isSelected={tag === "Web"}
         />
-        <ProjectTags 
-          onClick={handleTagChange} 
-          name="UX" 
-          isSelected={tag === "UX"} 
+        <ProjectTags
+          onClick={handleTagChange}
+          name="UX"
+          isSelected={tag === "UX"}
         />
       </div>
       <ul ref={ref} className="lg:grid lg:grid-cols-3 gap-10">
         {filteredProjects.map((project, index) => (
-          <motion.li 
-          key={index}
-          variants={cardVariants} 
-          initial="initial" 
-          animate={isInView ? "animate" : "initial "}
-          transition={{ duration: 0.3, delay: index * 0.4 }}
+          <motion.li
+            key={index}
+            variants={cardVariants}
+            initial="initial"
+            animate={isInView ? "animate" : "initial "}
+            transition={{ duration: 0.3, delay: index * 0.4 }}
           >
             <ProjectCard
               key={project.id}
@@ -113,7 +121,7 @@ const ProjectsSection = () => {
         ))}
       </ul>
     </section>
-  ) 
-}
+  );
+};
 
-export default ProjectsSection
+export default ProjectsSection;
