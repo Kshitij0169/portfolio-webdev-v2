@@ -8,7 +8,7 @@ import { saveAs } from "file-saver";
 const HeroSection = () => {
   const saveFile = () => {
     saveAs(
-      "https://www.dropbox.com/scl/fi/y0fbj0qrc6fykjzcmuxa0/Kshitij_Tiwari_Resume.pdf?rlkey=1i5670e8aays0dxzlt0ksv5hq&dl=0",
+      "https://www.dropbox.com/scl/fi/5xi3r2bk8mk8ld6xmijp3/Kshitij_Tiwari_Resume.pdf?rlkey=dvzclgp8olo4uqto560wjh8ac&dl=0",
       "Kshitij_Tiwari_resume.pdf"
     );
   };
