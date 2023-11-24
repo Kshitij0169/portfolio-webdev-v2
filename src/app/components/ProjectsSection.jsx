@@ -24,6 +24,24 @@ const projectsData = [
     preview: "https://github.com/Kshitij0169/airbnb-clone.git",
   },
   {
+    id: 7,
+    title: "Hospital Management App",
+    description: "Java Application",
+    image: "/images/projects/7.png",
+    tag: ["All"],
+    git: "https://github.com/Kshitij0169/MeddyBudd.git",
+    preview: "https://github.com/Kshitij0169/MeddyBudd.git",
+  },
+  {
+    id: 8,
+    title: "Employee Management System",
+    description: "Java Application",
+    image: "/images/projects/8.jpg",
+    tag: ["All"],
+    git: "https://github.com/Kshitij0169/Employee-Manager.git",
+    preview: "https://github.com/Kshitij0169/Employee-Manager.git",
+  },
+  {
     id: 2,
     title: "i-Fix e-commerce Website",
     description: "Full-stack React web application",
@@ -100,7 +118,7 @@ const ProjectsSection = () => {
           isSelected={tag === "UX"}
         />
       </div>
-      <ul ref={ref} className="lg:grid lg:grid-cols-3 gap-10">
+      <ul ref={ref} className="lg:grid lg:grid-cols-4 gap-10">
         {filteredProjects.map((project, index) => (
           <motion.li
             key={index}
