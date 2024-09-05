@@ -101,7 +101,7 @@ const ProjectsSection = () => {
   return (
     <section id="projects" ref={ref}>
       <h2 className="text-4xl font-bold text-white mb-8">My Projects</h2>
-      <div className="text-white flex flex-row justify-center items-center gap-3 py-6">
+      {/* <div className="text-white flex flex-row justify-center items-center gap-3 py-6">
         <ProjectTags
           onClick={handleTagChange}
           name="All"
@@ -117,7 +117,7 @@ const ProjectsSection = () => {
           name="UX"
           isSelected={tag === "UX"}
         />
-      </div>
+      </div> */}
       <ul ref={ref} className="lg:grid lg:grid-cols-4 gap-10">
         {filteredProjects.map((project, index) => (
           <motion.li
