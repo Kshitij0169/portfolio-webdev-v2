@@ -32,10 +32,16 @@ const TAB_DATA = [
     id: "experience",
     content: (
       <ul className="list-disc pl-2">
+        <li>Web-Production Co-op at</li>
+        <p>
+          <b>Commonwealth Financial Network, Waltham MA</b>
+        </p>
+        <p> January 2024 - Present</p>
         <li>Front end Designer/Developer Intern at</li>
         <p>
-          <b>Magick Box Media</b>
+          <b>Magick Box Media, India</b>
         </p>
+        <p>March 2021 - June 2022</p>
       </ul>
     ),
   },
