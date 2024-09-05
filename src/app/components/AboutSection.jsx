@@ -36,12 +36,12 @@ const TAB_DATA = [
         <p>
           <b>Commonwealth Financial Network, Waltham MA</b>
         </p>
-        <p> January 2024 - Present</p>
+        <p className="pb-2"> January 2024 - Present</p>
         <li>Front end Designer/Developer Intern at</li>
         <p>
           <b>Magick Box Media, India</b>
         </p>
-        <p>March 2021 - June 2022</p>
+        <p className="pb-2">March 2021 - June 2022</p>
       </ul>
     ),
   },
