@@ -54,7 +54,7 @@ const HeroSection = () => {
               onClick={saveFile}
               className="uibtn w-full sm:w-fit rounded-full"
             >
-              <span>Download Resume</span>
+              <span>View Resume</span>
             </button>
           </div>
         </motion.div>
