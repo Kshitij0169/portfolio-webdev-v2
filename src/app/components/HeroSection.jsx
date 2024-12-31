@@ -31,9 +31,11 @@ const HeroSection = () => {
               sequence={[
                 "Kshitij",
                 1500,
-                "Developer",
+                "Product Manager",
                 1500,
-                "UI/UX Designer",
+                "Product Owner",
+                1500,
+                "Developer",
                 1500,
                 "Gymrat",
                 1500,
@@ -44,9 +46,8 @@ const HeroSection = () => {
             />
           </h1>
           <p className="text-[#ABD7BE] text-base sm:text-lg mb-6 lg:text-xl">
-            A current graduate student at Northeastern University, pursuing MS
-            in Information Systems. Full-Stack developer with an inclination
-            towards Frontend.
+            Master of Science in Information Systems Graduate from Northeastern
+            University.
           </p>
           <div className="sm:place-content-center">
             <button
